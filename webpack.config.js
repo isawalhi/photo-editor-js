@@ -1,9 +1,10 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'development',
-    entry: './app/js/main.js',
+    entry: './app/src/index',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -19,8 +20,9 @@ module.exports = {
     module: {
         rules: [
             { 
-                test: /\.js$/, 
+                test: /\.(js|ts|jsx|tsx)$/,
                 loader: "babel-loader",
+                exclude: /node_modules/,
                 options: {
                 presets: ['@babel/preset-env'],
                 plugins: [
@@ -31,7 +33,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/i,
+                test: /\.(s?css)$/,
                 use: ["style-loader", "css-loader", "sass-loader"],
             }     
         ]
@@ -40,6 +42,10 @@ module.exports = {
             new HtmlWebpackPlugin({
                 title: 'My App',
                 template: './app/index.html'
-            })
-    ]
+            }),
+            // new BundleAnalyzerPlugin()
+    ],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+      },
 };
