@@ -1,0 +1,13 @@
+{
+  // "transpileOnly": true,
+  "compilerOptions": {
+    "sourceMap": true,
+    "strict": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+  }
+}
