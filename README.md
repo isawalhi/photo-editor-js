@@ -23,4 +23,14 @@ The following will happen:
  * File watchers are started
 
 You can add / remove / change files to in the source folder and your
-browser will automatically update to reflect the changes.
+browser will automatically update to reflect the changes using live reload.
+
+You can run the by typing:
+
+    npm run test:coverage
+
+## Issues
+ * Hot module replacement is broken 
+ * Bundle size is a big due to antd library 
+ * babel-import didn't work as expected, therefore antd components are imported form the lib
+ 

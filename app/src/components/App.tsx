@@ -1,15 +1,16 @@
 import React, { useCallback, useState } from "react";
 
 import PhotoEditor from "./PhotoEditor";
-import { Button, PageHeader } from "./ui";
-import { downloadJsonFile } from "./FileSaver/utils";
-import { FileUpload, useFileUpload } from "./FileUploader";
 import {
   getScaleFromInstructions,
   getPositionFromImageInstructions,
   getDimensionsFromImageInstructions,
 } from "./PhotoEditor/utils";
 import type { ImageInstructions } from "./PhotoEditor/types";
+
+import { Button, PageHeader } from "./ui";
+import { downloadJsonFile } from "./FileSaver/utils";
+import { FileUpload, useFileUpload } from "./FileUploader";
 import "./App.scss";
 
 type useFileUploadResult = [FileUpload, any];
