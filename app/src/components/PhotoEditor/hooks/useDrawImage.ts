@@ -33,7 +33,7 @@ export const useDrawImage: UseDrawImage = ({
       );
     }
   }, [
-    imageRef,
+    String(imageRef),
     canvasRef,
     dimensions.width,
     dimensions.height,

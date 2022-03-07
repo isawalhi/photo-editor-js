@@ -33,4 +33,6 @@ You can run the by typing:
  * Hot module replacement is broken 
  * Bundle size is a big due to antd library 
  * babel-import didn't work as expected, therefore antd components are imported form the lib
+ * Scale factor is saved as part of the instructions
+ * Image flickers when reset or apply instruction is applied, the transition should go smooth
  
