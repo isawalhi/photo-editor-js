@@ -36,8 +36,8 @@ describe("<PhotoEditor />", () => {
     const canvasEle = screen.getByTestId("canvas-area");
 
     expect(canvasEle).toBeInTheDocument();
-    expect(canvasEle).toHaveAttribute("width", "1440");
-    expect(canvasEle).toHaveAttribute("height", "960");
+    expect(canvasEle).toHaveAttribute("width", "768");
+    expect(canvasEle).toHaveAttribute("height", "528");
   });
 
   it("should render the canvas with width and height passed as props", () => {

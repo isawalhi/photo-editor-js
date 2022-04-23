@@ -12,11 +12,10 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    stats: { colors: true },
     hot: false, // HMR is broken, as a workaround live reload is used
     open: true,
     port: 8090,
-    contentBase: path.join(__dirname, "dist"),
+    static: path.join(__dirname, "dist"),
   },
   module: {
     rules: [

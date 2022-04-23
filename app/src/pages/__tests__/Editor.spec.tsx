@@ -1,19 +1,19 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
-import App from "../App";
-import * as FileUploader from "../FileUploader";
-import type { FileUpload } from "../FileUploader";
-import * as FileSaverUtils from "../FileSaver/utils";
+import Editor from "../Editor";
+import * as FileUploader from "../../components/FileUploader";
+import type { FileUpload } from "../../components/FileUploader";
+import * as FileSaverUtils from "../../components/FileSaver/utils";
 
-describe("<App />", () => {
+describe("<Editor />", () => {
   it.each([
     ["reset-btn"],
     ["submit-btn"],
     ["upload-image-btn"],
     ["import-instructions-btn"],
   ])("should render %s", (btnTestId) => {
-    render(<App />);
+    render(<Editor />);
 
     const btn = screen.getByTestId(btnTestId);
 
@@ -25,7 +25,7 @@ describe("<App />", () => {
     jest
       .spyOn(FileUploader, "useFileUpload")
       .mockReturnValue([{} as FileUpload, mockSelectFile]);
-    render(<App />);
+    render(<Editor />);
 
     const btn = screen.getByTestId("upload-image-btn");
 
@@ -43,7 +43,7 @@ describe("<App />", () => {
       .spyOn(FileUploader, "useFileUpload")
       .mockReturnValue([{} as FileUpload, mockSelectInstructionsFile]);
 
-    render(<App />);
+    render(<Editor />);
 
     const btn = screen.getByTestId("import-instructions-btn");
 
@@ -58,9 +58,9 @@ describe("<App />", () => {
     jest
       .spyOn(FileUploader, "useFileUpload")
       .mockReturnValue([{ name: "test-file.json" } as FileUpload, jest.fn()]);
-    const downLoadFileSpy = jest.spyOn(FileSaverUtils, "downloadJsonFile");
+      const downLoadFileSpy = jest.spyOn(FileSaverUtils, "downloadJsonFile").mockImplementation(jest.fn());
 
-    render(<App />);
+    render(<Editor />);
 
     const btn = screen.getByTestId("submit-btn");
 
@@ -72,7 +72,7 @@ describe("<App />", () => {
   });
 
   it("should call reset handler when reset button is clicked", () => {
-    render(<App />);
+    render(<Editor />);
 
     const btn = screen.getByTestId("reset-btn");
 

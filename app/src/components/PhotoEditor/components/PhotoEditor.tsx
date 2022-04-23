@@ -202,6 +202,7 @@ const PhotoEditor: React.FC<PhotoEditorProps> = (props) => {
       />
 
       <ControlPanelComponent
+        disabled={!source}
         initialScale={initialScale}
         defaultScale={DEFAULT_SCALE}
         onScaleChange={handleScaleChange}

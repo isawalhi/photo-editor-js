@@ -1,8 +1,8 @@
 export const STEP_SIZE = 10;
 
-export const MAX_WIDTH = 15;
+export const MAX_WIDTH = 8;
 
-export const MAX_HEIGHT = 10;
+export const MAX_HEIGHT = 5.5;
 
 export const DEFAULT_SCALE = 100;
 
