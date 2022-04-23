@@ -5,6 +5,7 @@ import { Button, Col, Row, Slider } from "../../ui";
 import { DEFAULT_SCALE, Directions } from "../constants";
 
 interface ControlPanelProps {
+  disabled: boolean;
   sliderProps?: any;
   initialScale: number;
   defaultScale: number;
@@ -14,6 +15,7 @@ interface ControlPanelProps {
 }
 
 export const ControlPanel: React.FC<ControlPanelProps> = ({
+  disabled,
   sliderProps = {},
   initialScale,
   onScaleChange,
@@ -22,22 +24,25 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
   defaultScale = DEFAULT_SCALE,
 }) => {
   return (
-    <Row gutter={24}>
+    <Row gutter={[24, 24]} justify="center" align="stretch">
       <Col>
         {Object.values(Directions).map((direction) => (
           <Button
             key={direction}
+            disabled={disabled}
             data-testid={`button-${direction}`}
             onClick={() => onPositionChange(direction)}
           >
-            {`${positionStepSize} to ${direction}`}
+            {`${positionStepSize} px to ${direction}`}
           </Button>
         ))}
       </Col>
-      <Col span={8}>
+      <Col span={16}>
         <Slider
           min={1}
           step={0.1}
+          aria-label='resize'
+          disabled={disabled}
           max={defaultScale * 2}
           onChange={onScaleChange}
           data-testid="scale-slider"
